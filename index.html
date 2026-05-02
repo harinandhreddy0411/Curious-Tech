@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curious Tech | Learn & Explore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sys-modal" class="system-alert-overlay hidden">
+        <div class="outlined-box bg-yellow modal-wrapper">
+            <h3 class="angled-header" style="font-size: 1.2rem; margin-bottom: 1rem;">SYSTEM NOTIFICATION</h3>
+            <p id="modal-msg" style="font-weight: 900; font-size: 1.2rem; margin-bottom: 2rem;"></p>
+            <button id="modal-close-btn" class="action-btn primary-action">ACKNOWLEDGE</button>
+        </div>
+    </div>
+
+    <nav class="top-navigation">
+        <div class="brand-wrapper" id="home-logo">
+            <h1 class="brand-text">CURIOUS TECH</h1>
+        </div>
+        <ul class="nav-items">
+            <li><a href="#" data-target="projects-page">Projects</a></li>
+            <li><a href="#" data-target="quiz-page" class="requires-auth">Interactive</a></li>
+            <li><a href="#" data-target="blog-page">Transmissions</a></li>
+            <li><a href="#" data-target="about-page">About</a></li>
+            <li><a href="#" data-target="contact-page">Contact</a></li>
+        </ul>
+        <div class="auth-controls">
+            <button id="nav-login-btn" class="action-btn primary-action" data-target="login-page">SIGN IN</button>
+            <span id="user-greeting" class="hidden greeting-label"></span>
+            <button id="nav-logout-btn" class="action-btn danger-action hidden">LOGOUT</button>
+        </div>
+    </nav>
+
+    <main id="app-container">
+
+        <section id="login-page" class="view-section">
+            <div class="login-wrapper">
+                <div class="outlined-box login-inner bg-white">
+                    
+                    <div class="auth-switcher">
+                        <button id="show-login" class="switcher-btn active-switcher">Sign In</button>
+                        <button id="show-register" class="switcher-btn">Register</button>
+                    </div>
+
+                    <form id="login-form" class="auth-form">
+                        <div class="input-wrap">
+                            <label>USER EMAIL</label>
+                            <input type="email" id="login-email" placeholder="user@curioustech.edu" required>
+                        </div>
+                        <div class="input-wrap">
+                            <label>PASSWORD</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-row" style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-weight: 900;">
+                            <label style="background: none; color: black; padding: 0; display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox" style="width: auto;"> Remember Me
+                            </label>
+                            <a href="#" style="color: var(--blue-accent);">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="action-btn primary-action submit-btn">AUTHENTICATE</button>
+                    </form>
+
+                    <form id="register-form" class="auth-form hidden">
+                        <div class="input-wrap">
+                            <label>IDENTIFIER (USERNAME)</label>
+                            <input type="text" id="reg-name" placeholder="Maverick" required>
+                        </div>
+                        <div class="input-wrap">
+                            <label>USER EMAIL</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="input-wrap">
+                            <label>NEW PASSWORD</label>
+                            <input type="password" required>
+                        </div>
+                        <button type="submit" class="action-btn secondary-action submit-btn">REGISTER SYSTEM</button>
+                    </form>
+                    
+                    <div class="login-bottom">
+                        <p style="margin-bottom: 1rem; font-weight: 900;">Verified via:</p>
+                        <div class="social-icons">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects-page" class="view-section active-view">
+            <div class="main-intro-block outlined-box bg-white">
+                <div class="intro-text-box">
+                    <h2 class="angled-header">EXPLORE TOMORROW</h2>
+                    <p>Access our open-source tools or authenticate to unlock advanced simulators.</p>
+                </div>
+            </div>
+
+            <div class="masonry-grid">
+                <div class="outlined-box item-card bg-yellow">
+                    <div class="status-badge free-access">OPEN ACCESS</div>
+                    <img src="proj-1.jpg" alt="Neural Interface" class="styled-pic">
+                    <h3>NEURAL INTERFACE UI</h3>
+                    <p>Frontend components for BCI systems.</p>
+                    <button class="action-btn block-btn detail-trigger" data-id="project-1">View Details</button>
+                </div>
+                
+                <div class="outlined-box item-card locked-item bg-white">
+                    <div class="status-badge locked-access">AUTH REQUIRED</div>
+                    <img src="proj-2.jpg" alt="Quantum Crypto" class="styled-pic">
+                    <h3>QUANTUM CRYPTO SIM</h3>
+                    <p>Simulate QKD protocols securely.</p>
+                    <button class="action-btn block-btn detail-trigger requires-auth-btn" data-id="project-2">Unlock Module</button>
+                </div>
+
+                <div class="outlined-box item-card locked-item bg-green">
+                    <div class="status-badge locked-access">AUTH REQUIRED</div>
+                    <img src="proj-3.jpg" alt="Android App" class="styled-pic">
+                    <h3>DAILY CHALLENGES APP</h3>
+                    <p>Android app for daily logic puzzles.</p>
+                    <button class="action-btn block-btn detail-trigger requires-auth-btn" data-id="project-3">Unlock Module</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-page" class="view-section">
+            <h2 class="angled-header">INTERACTIVE ZONE</h2>
+            <div class="split-layout">
+                <div class="side-content">
+                    <div class="outlined-box bg-yellow" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 10px; background: white; padding: 2px 5px; border: 2px solid black; display: inline-block;">Premium Course</h3>
+                        <p style="font-weight: bold; margin-bottom: 15px;">Zero to Hero: Full Stack Architecture.</p>
+                        <button class="action-btn primary-action" style="width: 100%;">Enroll Now</button>
+                    </div>
+                    <div class="outlined-box bg-white" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 10px; background: white; padding: 2px 5px; border: 2px solid black; display: inline-block;">Featured Product</h3>
+                        <p style="font-weight: bold; margin-bottom: 15px;">Curious Tech mechanical keyboards.</p>
+                        <button class="action-btn secondary-action" style="width: 100%;">View Shop</button>
+                    </div>
+                </div>
+
+                <div class="eval-container outlined-box bg-blue">
+                    <h3 style="background: white; padding: 10px; border: 3px solid black; display: inline-block; color: black;">Module: Core Concepts</h3>
+                    <p style="margin: 1.5rem 0; font-weight: 900; font-size: 1.1rem;">User Authenticated. Proceed with evaluation.</p>
+                    
+                    <form id="quiz-form">
+                        <div class="eval-block" id="question-1">
+                            <p>1. Which data structure operates on a LIFO principle?</p>
+                            <label><input type="radio" name="q1" value="correct"> Stack</label><br>
+                            <label><input type="radio" name="q1" value="wrong"> Queue</label><br>
+                            <label><input type="radio" name="q1" value="wrong"> Linked List</label><br>
+                            <span class="response-msg" id="feedback-1"></span>
+                        </div>
+                        
+                        <div class="eval-block" id="question-2">
+                            <p>2. What is the primary function of a reverse proxy?</p>
+                            <label><input type="radio" name="q2" value="wrong"> Compiling code</label><br>
+                            <label><input type="radio" name="q2" value="correct"> Directing client requests to backend servers</label><br>
+                            <label><input type="radio" name="q2" value="wrong"> Managing databases</label><br>
+                            <span class="response-msg" id="feedback-2"></span>
+                        </div>
+
+                        <div class="eval-block" id="question-3">
+                            <p>3. In CSS, what does 'Cascading' refer to?</p>
+                            <label><input type="radio" name="q3" value="wrong"> The way elements flow on a page</label><br>
+                            <label><input type="radio" name="q3" value="wrong"> Compressing image files</label><br>
+                            <label><input type="radio" name="q3" value="correct"> The priority scheme for applying styles</label><br>
+                            <span class="response-msg" id="feedback-3"></span>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; margin-top: 1rem;">
+                            <button type="button" id="submit-quiz-btn" class="action-btn primary-action" onclick="calculateQuiz()">Submit</button>
+                            <button type="button" id="retry-quiz-btn" class="action-btn danger-action hidden" onclick="resetQuiz()">Restart Module</button>
+                        </div>
+                    </form>
+                    <div id="quiz-result" class="hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog-page" class="view-section" style="position: relative; overflow: hidden; padding-top: 4rem;">
+            <div class="graphic-element graphic-pow" style="top: 20px; left: 2%; transform: rotate(-15deg);">POW!</div>
+            <div class="graphic-element graphic-star" style="top: 80px; left: 25%; transform: rotate(20deg);">★</div>
+            <div class="graphic-element graphic-question" style="top: 30px; right: 8%; transform: rotate(15deg);">?</div>
+            <div class="graphic-element graphic-exclaim" style="top: 200px; right: 3%; transform: rotate(-10deg);">!</div>
+            <div class="graphic-element graphic-boom" style="top: 400px; left: -2%; transform: rotate(5deg);">BOOM!</div>
+            <div class="graphic-element graphic-star" style="top: 500px; right: 2%; transform: rotate(-15deg);">★</div>
+            <div class="graphic-element graphic-star" style="bottom: 120px; right: 15%; transform: rotate(-25deg); background: var(--accent-color);">★</div>
+            <div class="graphic-element graphic-bam" style="bottom: 80px; left: 8%; transform: rotate(10deg);">BAM!</div>
+            <div class="graphic-element graphic-question" style="bottom: 250px; left: 2%; transform: rotate(-15deg);">?</div>
+            <div class="graphic-element graphic-pow" style="bottom: 5px; right: 2%; transform: rotate(-5deg);">ZAP!</div>
+
+            <h2 class="angled-header" style="position: relative; z-index: 10;">TRANSMISSIONS</h2>
+            
+            <div class="masonry-grid" style="position: relative; z-index: 10;">
+                <div class="outlined-box text-post bg-yellow">
+                    <div class="status-badge free-access">OPEN ACCESS</div>
+                    <h3>01. Quantum Supremacy</h3>
+                    <p>An analysis of how qubits are breaking boundaries...</p>
+                    <button class="action-btn block-btn read-trigger" data-blog="blog-1">Access Record</button>
+                </div>
+                <div class="outlined-box text-post bg-white">
+                    <div class="status-badge free-access">OPEN ACCESS</div>
+                    <h3>02. CSS Neo-Brutalism</h3>
+                    <p>How to code this exact aesthetic from scratch...</p>
+                    <button class="action-btn block-btn read-trigger" data-blog="blog-2">Access Record</button>
+                </div>
+                <div class="outlined-box text-post locked-item bg-green">
+                    <div class="status-badge locked-access">AUTH REQUIRED</div>
+                    <h3>03. Agentic AI</h3>
+                    <p>Moving beyond conversational models to autonomous web agents...</p>
+                    <button class="action-btn block-btn read-trigger requires-auth-btn" data-blog="blog-3">Access Record</button>
+                </div>
+                <div class="outlined-box text-post locked-item bg-blue">
+                    <div class="status-badge locked-access" style="background: white; color:black;">AUTH REQUIRED</div>
+                    <h3 style="color: black;">04. Kernel Level Dev</h3>
+                    <p>A deep dive into writing drivers for modern Linux...</p>
+                    <button class="action-btn block-btn read-trigger requires-auth-btn" data-blog="blog-4">Access Record</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog-detail-page" class="view-section">
+            <button class="action-btn" id="back-to-blogs">← RETURN</button>
+            <div class="outlined-box focus-view bg-white" style="margin-top: 2rem;">
+                <h1 id="blog-title" class="angled-header"></h1>
+                <div id="blog-content" class="formatted-content" style="margin-top: 2rem;"></div>
+            </div>
+        </section>
+
+        <section id="about-page" class="view-section">
+            <div class="dual-layout">
+                <div class="outlined-box statement-box bg-white">
+                    <h2 class="angled-header" style="background: var(--primary-color); color: white;">OUR MISSION</h2>
+                    <p class="core-text">Curious Tech is a revolutionary educational platform engineered to dismantle the traditional barriers to advanced technology education.</p>
+                    <p class="core-text" style="font-size: 1.1rem; margin-top: 1rem;">Born from the need for practical, hands-on learning, we provide a visually rich, interactive environment. We specialize in demystifying complex subjects like Artificial Intelligence, Quantum Computing, and Advanced Systems Design.</p>
+                    <p class="core-text" style="font-size: 1.1rem; margin-top: 1rem;">Our primary objective is to build open-source tools, rigorous evaluation modules, and AI-driven simulators that empower students to transition seamlessly from theoretical knowledge to applied engineering in the real world.</p>
+                    <img src="about-img.jpg" alt="About Landscape" class="styled-pic about-main-pic" style="margin-top: 2rem;">
+                </div>
+
+                <div class="roster-wrapper">
+                    <h2 class="angled-header" style="background: var(--secondary-color);">STUDENTS</h2>
+                    <div class="masonry-grid" style="grid-template-columns: 1fr;">
+                        <div class="outlined-box member-card bg-yellow shadow-offset">
+                            <div class="roster-heading">
+                                <h3>Harinandh Reddy</h3>
+                            </div>
+                            <p class="identifier-code">AM.SC.U4cse25221</p>
+                            <div class="label-group">
+                                <span class="label-pill pill-white">&lt;/&gt; LEAD ARCHITECT</span>
+                                <span class="label-pill pill-green">AI/ML</span>
+                            </div>
+                            <div class="link-cluster" style="margin-top: 15px;">
+                                <a href="https://github.com/harinandhreddy0411" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                                <a href="https://www.linkedin.com/in/harinandhreddy" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                            </div>
+                        </div>
+
+                        <div class="outlined-box member-card bg-white shadow-offset">
+                            <div class="roster-heading">
+                                <h3>Sai Nitesh Reddy</h3>
+                            </div>
+                            <p class="identifier-code">AM.SC.U4CSE25211</p>
+                            <div class="label-group">
+                                <span class="label-pill pill-white">SYSTEMS DESIGN</span>
+                                <span class="label-pill pill-yellow">UI / UX</span>
+                            </div>
+                            <div class="link-cluster" style="margin-top: 15px;">
+                                <a href="https://challasainiteshreddy.github.io/myportfolio/" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10"></path></svg></a>
+                            </div>
+                        </div>
+
+                        <div class="outlined-box member-card bg-green shadow-offset">
+                            <div class="roster-heading">
+                                <h3>Ganesh</h3>
+                            </div>
+                            <p class="identifier-code">AM.SC.U4CSE25223</p>
+                            <div class="label-group"><span class="label-pill pill-white">NETWORK SECURITY</span></div>
+                            <div class="link-cluster" style="margin-top: 15px;">
+                                <a href="https://innamuriganesh.github.io/UID-Project%20Portfolio/index.html" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10"></path></svg></a>
+                            </div>
+                        </div>
+
+                        <div class="outlined-box member-card bg-blue shadow-offset">
+                            <div class="roster-heading">
+                                <h3>Vardhan</h3>
+                            </div>
+                            <p class="identifier-code" style="color:white;">AM.SC.U4CSE25255</p>
+                            <div class="label-group"><span class="label-pill pill-white">MOBILE DEV</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-page" class="view-section">
+            <h2 class="angled-header">ESTABLISH CONNECTION</h2>
+            <div class="comms-layout">
+                <form class="outlined-box data-form bg-white">
+                    <div class="input-wrap">
+                        <label>IDENTIFIER (NAME)</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-wrap">
+                        <label>RETURN ADDRESS (EMAIL)</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="input-wrap">
+                        <label>PAYLOAD (MESSAGE)</label>
+                        <textarea rows="5" required></textarea>
+                    </div>
+                    <button class="action-btn primary-action submit-btn">TRANSMIT</button>
+                </form>
+                <div class="outlined-box data-info bg-yellow">
+                    <h3 class="angled-header" style="background: var(--blue-accent); color: white; font-size: 1.2rem;">HQ Coordinates</h3>
+                    <p style="margin: 15px 0; font-weight: 900; font-size: 1.1rem;">📍 Amrita Vishwa Vidyapeetham</p>
+                    <hr>
+                    <h3 class="angled-header" style="background: var(--primary-color); color: white; font-size: 1.2rem;">Comms Channels</h3>
+                    <p style="margin: 15px 0; font-weight: 900; font-size: 1.1rem;">📧 terminal@curioustech.edu</p>
+                    <p style="font-weight: 900; font-size: 1.1rem;">📞 +91 98765 43210</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-detail-page" class="view-section">
+            <button class="action-btn" id="back-to-projects">← RETURN</button>
+            <div class="outlined-box focus-view bg-white" style="margin-top: 2rem;">
+                <h2 id="detail-title" class="angled-header"></h2>
+                <img id="detail-img" src="" class="styled-pic">
+                <div id="detail-content" class="formatted-content"></div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
