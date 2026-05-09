@@ -72,7 +72,7 @@ h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px
 .active-view { display: block; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-.outlined-box { border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 2rem; margin-bottom: 2rem; position: relative; transition: transform 0.2s; }
+.outlined-box { border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 2rem; margin-bottom: 2rem; position: relative; transition: transform 0.1s; }
 .bg-white { background: white; }
 .bg-yellow { background: var(--secondary-color); }
 .bg-green { background: var(--accent-color); }
