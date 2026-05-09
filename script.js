@@ -1,4 +1,4 @@
-let currentUser = null; 
+let currentUser = JSON.parse(sessionStorage.getItem('ct_active_user')) || null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const views = document.querySelectorAll('.view-section');
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const emailInput = document.getElementById('login-email').value;
         const passInput = document.getElementById('login-pass').value;
         
-        const users = JSON.parse(localStorage.getItem('ct_users')) || {};
+        const users = JSON.parse(localStorage.getItem('ct_database')) || {};
         
         if (!users[emailInput]) {
             showModal("USER NOT FOUND. PLEASE REGISTER.");
@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         currentUser = { name: users[emailInput].name };
+        sessionStorage.setItem('ct_active_user', JSON.stringify(currentUser));
+        
         updateAuthState();
         showModal(`AUTHENTICATION SUCCESSFUL. WELCOME BACK, ${users[emailInput].name}!`);
         loginForm.reset();
@@ -116,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const emailInput = document.getElementById('reg-email').value;
         const passInput = document.getElementById('reg-pass').value;
         
-        const users = JSON.parse(localStorage.getItem('ct_users')) || {};
+        const users = JSON.parse(localStorage.getItem('ct_database')) || {};
         
         if (users[emailInput]) {
             showModal("USER ALREADY EXISTS. PLEASE SIGN IN.");
@@ -124,9 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         users[emailInput] = { name: nameInput, password: passInput };
-        localStorage.setItem('ct_users', JSON.stringify(users));
+        localStorage.setItem('ct_database', JSON.stringify(users));
         
         currentUser = { name: nameInput };
+        sessionStorage.setItem('ct_active_user', JSON.stringify(currentUser));
+        
         updateAuthState();
         showModal(`REGISTRATION COMPLETE. ACCESS GRANTED, ${nameInput}!`);
         regForm.reset();
@@ -135,9 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLogoutBtn.addEventListener('click', () => {
         currentUser = null;
+        sessionStorage.removeItem('ct_active_user');
         updateAuthState();
         showModal("SESSION TERMINATED.");
-        setTimeout(() => { location.reload(); }, 1500); 
+        setTimeout(() => { location.reload(); }, 1500);
     });
 
     const projectData = {
@@ -155,22 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    document.querySelectorAll('.detail-trigger').forEach(btn => btn.addEventListener('click', () => {
-        if (btn.classList.contains('requires-auth-btn') && !currentUser) {
-            showModal("SYSTEM HALT: Authorization Required to access Premium Projects.");
-            navigateTo('login-page');
-            return;
-        }
-        const id = btn.getAttribute('data-id');
-        const data = projectData[id];
-        document.getElementById('detail-title').innerText = data.title;
-        document.getElementById('detail-content').innerHTML = data.content; 
-        document.getElementById('detail-img').src = `proj-${id.split('-')[1]}.jpg`;
-        navigateTo('project-detail-page');
-    }));
-
-    document.getElementById('back-to-projects').addEventListener('click', () => navigateTo('projects-page'));
-    
     const blogData = {
         "blog-1": { 
             title: "01. Quantum Supremacy", 
@@ -189,20 +178,43 @@ document.addEventListener('DOMContentLoaded', () => {
             content: "<h3>Close to the Metal</h3><p>Writing drivers for modern Linux distributions requires a deep, fundamental understanding of memory management, hardware interrupts, and concurrency.</p><p>This transmission dives into the C architecture underlying the Linux Kernel, exploring how to safely write and deploy custom character device drivers.</p>" 
         }
     };
-    
-    document.querySelectorAll('.read-trigger').forEach(btn => btn.addEventListener('click', () => {
-        if (btn.classList.contains('requires-auth-btn') && !currentUser) {
-            showModal("SYSTEM HALT: Authorization Required to access secure transmissions.");
-            navigateTo('login-page');
-            return;
+
+    document.addEventListener('click', (e) => {
+        const detailBtn = e.target.closest('.detail-trigger');
+        if (detailBtn) {
+            e.preventDefault();
+            if (detailBtn.classList.contains('requires-auth-btn') && !currentUser) {
+                showModal("SYSTEM HALT: Authorization Required to access Premium Projects.");
+                navigateTo('login-page');
+                return;
+            }
+            const id = detailBtn.getAttribute('data-id');
+            const data = projectData[id];
+            if (!data) return;
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-content').innerHTML = data.content;
+            document.getElementById('detail-img').src = `proj-${id.split('-')[1]}.jpg`;
+            navigateTo('project-detail-page');
         }
-        const id = btn.getAttribute('data-blog');
-        const data = blogData[id];
-        document.getElementById('blog-title').innerText = data.title;
-        document.getElementById('blog-content').innerHTML = data.content; 
-        navigateTo('blog-detail-page');
-    }));
-    
+
+        const readBtn = e.target.closest('.read-trigger');
+        if (readBtn) {
+            e.preventDefault();
+            if (readBtn.classList.contains('requires-auth-btn') && !currentUser) {
+                showModal("SYSTEM HALT: Authorization Required to access secure transmissions.");
+                navigateTo('login-page');
+                return;
+            }
+            const id = readBtn.getAttribute('data-blog');
+            const data = blogData[id];
+            if (!data) return;
+            document.getElementById('blog-title').innerText = data.title;
+            document.getElementById('blog-content').innerHTML = data.content;
+            navigateTo('blog-detail-page');
+        }
+    });
+
+    document.getElementById('back-to-projects').addEventListener('click', () => navigateTo('projects-page'));
     document.getElementById('back-to-blogs').addEventListener('click', () => navigateTo('blog-page'));
 
     updateAuthState();
