@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateAuthState() {
         if (currentUser) {
             navLoginBtn.classList.add('hidden');
-            userGreeting.innerText = `Hi, ${currentUser.name}`;
+            userGreeting.innerText = `HI, ${currentUser.name}`;
             userGreeting.classList.remove('hidden');
             navLogoutBtn.classList.remove('hidden');
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const badge = card.querySelector('.status-badge');
                 if (badge) {
                     badge.innerText = "UNLOCKED";
-                    badge.style.background = "var(--secondary-color)"; 
+                    badge.style.background = "gold"; 
                     badge.style.color = "black";
                 }
             });
@@ -89,24 +89,46 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const emailInput = document.getElementById('login-email').value;
-        const name = emailInput.split('@')[0].toUpperCase();
+        const passInput = document.getElementById('login-pass').value;
         
-        currentUser = { name: name };
+        const users = JSON.parse(localStorage.getItem('ct_users')) || {};
+        
+        if (!users[emailInput]) {
+            showModal("USER NOT FOUND. PLEASE REGISTER.");
+            return;
+        }
+        
+        if (users[emailInput].password !== passInput) {
+            showModal("INVALID PASSWORD.");
+            return;
+        }
+        
+        currentUser = { name: users[emailInput].name };
         updateAuthState();
-        
-        showModal(`AUTHENTICATION SUCCESSFUL. WELCOME BACK, ${name}!`);
+        showModal(`AUTHENTICATION SUCCESSFUL. WELCOME BACK, ${users[emailInput].name}!`);
         loginForm.reset();
         navigateTo('projects-page');
     });
 
     regForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('reg-name').value.toUpperCase();
+        const nameInput = document.getElementById('reg-name').value.toUpperCase();
+        const emailInput = document.getElementById('reg-email').value;
+        const passInput = document.getElementById('reg-pass').value;
         
-        currentUser = { name: name };
+        const users = JSON.parse(localStorage.getItem('ct_users')) || {};
+        
+        if (users[emailInput]) {
+            showModal("USER ALREADY EXISTS. PLEASE SIGN IN.");
+            return;
+        }
+        
+        users[emailInput] = { name: nameInput, password: passInput };
+        localStorage.setItem('ct_users', JSON.stringify(users));
+        
+        currentUser = { name: nameInput };
         updateAuthState();
-        
-        showModal(`REGISTRATION COMPLETE. ACCESS GRANTED, ${name}!`);
+        showModal(`REGISTRATION COMPLETE. ACCESS GRANTED, ${nameInput}!`);
         regForm.reset();
         navigateTo('projects-page');
     });
@@ -115,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentUser = null;
         updateAuthState();
         showModal("SESSION TERMINATED.");
-        setTimeout(() => { location.reload(); }, 1500);
+        setTimeout(() => { location.reload(); }, 1500); 
     });
 
     const projectData = {
@@ -142,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = btn.getAttribute('data-id');
         const data = projectData[id];
         document.getElementById('detail-title').innerText = data.title;
-        document.getElementById('detail-content').innerHTML = data.content;
+        document.getElementById('detail-content').innerHTML = data.content; 
         document.getElementById('detail-img').src = `proj-${id.split('-')[1]}.jpg`;
         navigateTo('project-detail-page');
     }));
@@ -156,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "blog-2": { 
             title: "02. CSS Neo-Brutalism", 
-            content: "<h3>Embracing the Chaos</h3><p>The Neo-Brutalist aesthetic combines harsh architectural borders, stark primary colors, and hard offset shadows to create user interfaces that demand attention.</p><p>In this guide, we break down how to utilize pure CSS variables, text-shadow manipulation, and precise z-index layering to build a style interface from scratch.</p>" 
+            content: "<h3>Embracing the Chaos</h3><p>The Neo-Brutalist aesthetic combines harsh architectural borders, stark primary colors, and hard offset shadows to create user interfaces that demand attention.</p><p>In this guide, we break down how to utilize pure CSS variables, text-shadow manipulation, and precise z-index layering to build a graphic interface from scratch.</p>" 
         },
         "blog-3": { 
             title: "03. Agentic AI", 
@@ -177,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = btn.getAttribute('data-blog');
         const data = blogData[id];
         document.getElementById('blog-title').innerText = data.title;
-        document.getElementById('blog-content').innerHTML = data.content;
+        document.getElementById('blog-content').innerHTML = data.content; 
         navigateTo('blog-detail-page');
     }));
     
@@ -228,7 +250,7 @@ function calculateQuiz() {
     res.classList.remove('hidden');
     
     res.innerHTML = `EVALUATION COMPLETE: ${score}/${totalQuestions}. ` + (score === totalQuestions ? "Perfect Score." : "Review errors.");
-    res.style.backgroundColor = score === totalQuestions ? 'var(--accent-color)' : 'var(--primary-color)';
+    res.style.backgroundColor = score === totalQuestions ? 'lightgreen' : 'crimson';
     res.style.color = score === totalQuestions ? 'black' : 'white';
 }
 
@@ -247,7 +269,3 @@ function resetQuiz() {
     document.getElementById('retry-quiz-btn').classList.add('hidden');
     document.getElementById('quiz-result').classList.add('hidden');
 }
-
-document.getElementById('modal-close-btn').addEventListener('click', () => {
-    document.getElementById('sys-modal').classList.add('hidden');
-});
