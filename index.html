@@ -20,11 +20,11 @@
             <h1 class="brand-text">CURIOUS TECH</h1>
         </div>
         <ul class="nav-items">
-            <li><a href="#" data-target="projects-page">Projects</a></li>
-            <li><a href="#" data-target="quiz-page" class="requires-auth">Interactive</a></li>
-            <li><a href="#" data-target="blog-page">Transmissions</a></li>
-            <li><a href="#" data-target="about-page">About</a></li>
-            <li><a href="#" data-target="contact-page">Contact</a></li>
+            <li><a href="#" data-target="projects-page">HOME</a></li>
+            <li><a href="#" data-target="quiz-page" class="requires-auth">INTERACTIVE</a></li>
+            <li><a href="#" data-target="blog-page">TRANSMISSIONS</a></li>
+            <li><a href="#" data-target="about-page">ABOUT</a></li>
+            <li><a href="#" data-target="contact-page">CONTACT</a></li>
         </ul>
         <div class="auth-controls">
             <button id="nav-login-btn" class="action-btn primary-action" data-target="login-page">SIGN IN</button>
@@ -40,8 +40,8 @@
                 <div class="outlined-box login-inner bg-white">
                     
                     <div class="auth-switcher">
-                        <button id="show-login" class="switcher-btn active-switcher">Sign In</button>
-                        <button id="show-register" class="switcher-btn">Register</button>
+                        <button id="show-login" class="switcher-btn active-switcher">SIGN IN</button>
+                        <button id="show-register" class="switcher-btn">REGISTER</button>
                     </div>
 
                     <form id="login-form" class="auth-form">
@@ -51,13 +51,13 @@
                         </div>
                         <div class="input-wrap">
                             <label>PASSWORD</label>
-                            <input type="password" placeholder="••••••••" required>
+                            <input type="password" id="login-pass" placeholder="••••••••" required>
                         </div>
                         <div class="form-row" style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-weight: 900;">
                             <label style="background: none; color: black; padding: 0; display: flex; align-items: center; gap: 5px;">
                                 <input type="checkbox" style="width: auto;"> Remember Me
                             </label>
-                            <a href="#" style="color: var(--blue-accent);">Forgot Password?</a>
+                            <a href="#" style="color: royalblue;">Forgot Password?</a>
                         </div>
                         <button type="submit" class="action-btn primary-action submit-btn">AUTHENTICATE</button>
                     </form>
@@ -69,11 +69,11 @@
                         </div>
                         <div class="input-wrap">
                             <label>USER EMAIL</label>
-                            <input type="email" required>
+                            <input type="email" id="reg-email" required>
                         </div>
                         <div class="input-wrap">
                             <label>NEW PASSWORD</label>
-                            <input type="password" required>
+                            <input type="password" id="reg-pass" required>
                         </div>
                         <button type="submit" class="action-btn secondary-action submit-btn">REGISTER SYSTEM</button>
                     </form>
@@ -187,7 +187,7 @@
             <div class="graphic-element graphic-exclaim" style="top: 200px; right: 3%; transform: rotate(-10deg);">!</div>
             <div class="graphic-element graphic-boom" style="top: 400px; left: -2%; transform: rotate(5deg);">BOOM!</div>
             <div class="graphic-element graphic-star" style="top: 500px; right: 2%; transform: rotate(-15deg);">★</div>
-            <div class="graphic-element graphic-star" style="bottom: 120px; right: 15%; transform: rotate(-25deg); background: var(--accent-color);">★</div>
+            <div class="graphic-element graphic-star" style="bottom: 120px; right: 15%; transform: rotate(-25deg); background: lightgreen;">★</div>
             <div class="graphic-element graphic-bam" style="bottom: 80px; left: 8%; transform: rotate(10deg);">BAM!</div>
             <div class="graphic-element graphic-question" style="bottom: 250px; left: 2%; transform: rotate(-15deg);">?</div>
             <div class="graphic-element graphic-pow" style="bottom: 5px; right: 2%; transform: rotate(-5deg);">ZAP!</div>
@@ -233,7 +233,7 @@
         <section id="about-page" class="view-section">
             <div class="dual-layout">
                 <div class="outlined-box statement-box bg-white">
-                    <h2 class="angled-header" style="background: var(--primary-color); color: white;">OUR MISSION</h2>
+                    <h2 class="angled-header" style="background: crimson; color: white;">OUR MISSION</h2>
                     <p class="core-text">Curious Tech is a revolutionary educational platform engineered to dismantle the traditional barriers to advanced technology education.</p>
                     <p class="core-text" style="font-size: 1.1rem; margin-top: 1rem;">Born from the need for practical, hands-on learning, we provide a visually rich, interactive environment. We specialize in demystifying complex subjects like Artificial Intelligence, Quantum Computing, and Advanced Systems Design.</p>
                     <p class="core-text" style="font-size: 1.1rem; margin-top: 1rem;">Our primary objective is to build open-source tools, rigorous evaluation modules, and AI-driven simulators that empower students to transition seamlessly from theoretical knowledge to applied engineering in the real world.</p>
@@ -241,8 +241,9 @@
                 </div>
 
                 <div class="roster-wrapper">
-                    <h2 class="angled-header" style="background: var(--secondary-color);">STUDENTS</h2>
+                    <h2 class="angled-header" style="background: gold;">STUDENTS</h2>
                     <div class="masonry-grid" style="grid-template-columns: 1fr;">
+                        
                         <div class="outlined-box member-card bg-yellow shadow-offset">
                             <div class="roster-heading">
                                 <h3>Harinandh Reddy</h3>
@@ -255,6 +256,7 @@
                             <div class="link-cluster" style="margin-top: 15px;">
                                 <a href="https://github.com/harinandhreddy0411" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                                 <a href="https://www.linkedin.com/in/harinandhreddy" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                                <a href="https://harinandhreddy0411.github.io/My-Portfolio/" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
                             </div>
                         </div>
 
@@ -268,7 +270,7 @@
                                 <span class="label-pill pill-yellow">UI / UX</span>
                             </div>
                             <div class="link-cluster" style="margin-top: 15px;">
-                                <a href="https://challasainiteshreddy.github.io/myportfolio/" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10"></path></svg></a>
+                                <a href="https://challasainiteshreddy.github.io/myportfolio/" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
                             </div>
                         </div>
 
@@ -279,7 +281,8 @@
                             <p class="identifier-code">AM.SC.U4CSE25223</p>
                             <div class="label-group"><span class="label-pill pill-white">NETWORK SECURITY</span></div>
                             <div class="link-cluster" style="margin-top: 15px;">
-                                <a href="https://innamuriganesh.github.io/UID-Project%20Portfolio/index.html" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10"></path></svg></a>
+                                <a href="https://github.com/innamuriganesh" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                                <a href="https://innamuriganesh.github.io/UID-Project_Portfolio/index.html" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
                             </div>
                         </div>
 
@@ -289,7 +292,13 @@
                             </div>
                             <p class="identifier-code" style="color:white;">AM.SC.U4CSE25255</p>
                             <div class="label-group"><span class="label-pill pill-white">MOBILE DEV</span></div>
+                            <div class="link-cluster" style="margin-top: 15px;">
+                                <a href="https://github.com/thummalapallivardhan8" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                                <a href="https://www.linkedin.com/in/thummalapallivardhan" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                                <a href="https://thummalapallivardhan8.github.io/My-Portfolio/" target="_blank" class="circle-btn"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -314,22 +323,13 @@
                     <button class="action-btn primary-action submit-btn">TRANSMIT</button>
                 </form>
                 <div class="outlined-box data-info bg-yellow">
-                    <h3 class="angled-header" style="background: var(--blue-accent); color: white; font-size: 1.2rem;">HQ Coordinates</h3>
+                    <h3 class="angled-header" style="background: royalblue; color: white; font-size: 1.2rem;">HQ Coordinates</h3>
                     <p style="margin: 15px 0; font-weight: 900; font-size: 1.1rem;">📍 Amrita Vishwa Vidyapeetham</p>
                     <hr>
-                    <h3 class="angled-header" style="background: var(--primary-color); color: white; font-size: 1.2rem;">Comms Channels</h3>
+                    <h3 class="angled-header" style="background: crimson; color: white; font-size: 1.2rem;">Comms Channels</h3>
                     <p style="margin: 15px 0; font-weight: 900; font-size: 1.1rem;">📧 terminal@curioustech.edu</p>
                     <p style="font-weight: 900; font-size: 1.1rem;">📞 +91 98765 43210</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="project-detail-page" class="view-section">
-            <button class="action-btn" id="back-to-projects">← RETURN</button>
-            <div class="outlined-box focus-view bg-white" style="margin-top: 2rem;">
-                <h2 id="detail-title" class="angled-header"></h2>
-                <img id="detail-img" src="" class="styled-pic">
-                <div id="detail-content" class="formatted-content"></div>
             </div>
         </section>
 
