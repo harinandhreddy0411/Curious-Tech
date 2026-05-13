@@ -38,7 +38,6 @@
         <section id="login-page" class="view-section">
             <div class="login-wrapper">
                 <div class="outlined-box login-inner bg-white">
-                    
                     <div class="auth-switcher">
                         <button type="button" id="show-login" class="switcher-btn active-switcher">SIGN IN</button>
                         <button type="button" id="show-register" class="switcher-btn">REGISTER</button>
@@ -131,11 +130,13 @@
                 <div class="side-content">
                     <div class="outlined-box bg-yellow" style="padding: 1.5rem;">
                         <h3 style="margin-bottom: 10px; background: white; padding: 2px 5px; border: 2px solid black; display: inline-block;">Premium Course</h3>
+                        <img src="images/course.jpg" alt="Course Banner" class="styled-pic" style="height: 120px;">
                         <p style="font-weight: bold; margin-bottom: 15px;">Zero to Hero: Full Stack Architecture.</p>
                         <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp/" target="_blank" class="action-btn primary-action" style="display: block; width: 100%; text-align: center; text-decoration: none;">ENROLL NOW</a>
                     </div>
                     <div class="outlined-box bg-white" style="padding: 1.5rem;">
                         <h3 style="margin-bottom: 10px; background: white; padding: 2px 5px; border: 2px solid black; display: inline-block;">Featured Product</h3>
+                        <img src="images/keyboard.jpg" alt="Mechanical Keyboard" class="styled-pic" style="height: 120px;">
                         <p style="font-weight: bold; margin-bottom: 15px;">Curious Tech mechanical keyboards.</p>
                         <a href="https://nuphy.com/" target="_blank" class="action-btn secondary-action" style="display: block; width: 100%; text-align: center; text-decoration: none;">VIEW SHOP</a>
                     </div>
@@ -153,7 +154,6 @@
                             <label><input type="radio" name="q1" value="wrong"> Linked List</label><br>
                             <span class="response-msg" id="feedback-1"></span>
                         </div>
-                        
                         <div class="eval-block" id="question-2">
                             <p>2. What is the primary function of a reverse proxy?</p>
                             <label><input type="radio" name="q2" value="wrong"> Compiling code</label><br>
@@ -161,7 +161,6 @@
                             <label><input type="radio" name="q2" value="wrong"> Managing databases</label><br>
                             <span class="response-msg" id="feedback-2"></span>
                         </div>
-
                         <div class="eval-block" id="question-3">
                             <p>3. In CSS, what does 'Cascading' refer to?</p>
                             <label><input type="radio" name="q3" value="wrong"> The way elements flow on a page</label><br>
@@ -197,24 +196,28 @@
             <div class="masonry-grid" style="position: relative; z-index: 10;">
                 <div class="outlined-box text-post bg-yellow">
                     <div class="status-badge free-access">OPEN ACCESS</div>
+                    <img src="images/blog-1.jpg" alt="Quantum" class="styled-pic">
                     <h3>01. Quantum Supremacy</h3>
                     <p>An analysis of how qubits are breaking boundaries...</p>
                     <button type="button" class="action-btn block-btn read-trigger" data-blog="blog-1">ACCESS RECORD</button>
                 </div>
                 <div class="outlined-box text-post bg-white">
                     <div class="status-badge free-access">OPEN ACCESS</div>
+                    <img src="images/blog-2.jpg" alt="CSS" class="styled-pic">
                     <h3>02. CSS Neo-Brutalism</h3>
                     <p>How to code this exact aesthetic from scratch...</p>
                     <button type="button" class="action-btn block-btn read-trigger" data-blog="blog-2">ACCESS RECORD</button>
                 </div>
                 <div class="outlined-box text-post locked-item bg-green">
                     <div class="status-badge locked-access">AUTH REQUIRED</div>
+                    <img src="images/blog-3.jpg" alt="AI" class="styled-pic">
                     <h3>03. Agentic AI</h3>
                     <p>Moving beyond conversational models to autonomous web agents...</p>
                     <button type="button" class="action-btn block-btn read-trigger requires-auth-btn" data-blog="blog-3">ACCESS RECORD</button>
                 </div>
                 <div class="outlined-box text-post locked-item bg-blue">
                     <div class="status-badge locked-access" style="background: white; color:black;">AUTH REQUIRED</div>
+                    <img src="images/blog-4.jpg" alt="Linux" class="styled-pic">
                     <h3 style="color: black;">04. Kernel Level Dev</h3>
                     <p>A deep dive into writing drivers for modern Linux...</p>
                     <button type="button" class="action-btn block-btn read-trigger requires-auth-btn" data-blog="blog-4">ACCESS RECORD</button>
@@ -226,6 +229,7 @@
             <button type="button" class="action-btn" id="back-to-blogs">← RETURN</button>
             <div class="outlined-box focus-view bg-white" style="margin-top: 2rem;">
                 <h1 id="blog-title" class="angled-header"></h1>
+                <img id="blog-detail-img" src="" class="styled-pic">
                 <div id="blog-content" class="formatted-content" style="margin-top: 2rem;"></div>
             </div>
         </section>
@@ -245,7 +249,8 @@
                     <div class="masonry-grid" style="grid-template-columns: 1fr;">
                         
                         <div class="outlined-box member-card bg-yellow shadow-offset">
-                            <div class="roster-heading">
+                            <div class="roster-heading" style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <img src="images/avatar-1.jpg" alt="Harinandh" class="avatar-pic">
                                 <h3>Harinandh Reddy</h3>
                             </div>
                             <p class="identifier-code">AM.SC.U4cse25221</p>
@@ -261,7 +266,8 @@
                         </div>
 
                         <div class="outlined-box member-card bg-white shadow-offset">
-                            <div class="roster-heading">
+                            <div class="roster-heading" style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <img src="images/avatar-2.jpg" alt="Sai Nitesh" class="avatar-pic">
                                 <h3>Sai Nitesh Reddy</h3>
                             </div>
                             <p class="identifier-code">AM.SC.U4CSE25211</p>
@@ -275,7 +281,8 @@
                         </div>
 
                         <div class="outlined-box member-card bg-green shadow-offset">
-                            <div class="roster-heading">
+                            <div class="roster-heading" style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <img src="images/avatar-3.jpg" alt="Ganesh" class="avatar-pic">
                                 <h3>Ganesh</h3>
                             </div>
                             <p class="identifier-code">AM.SC.U4CSE25223</p>
@@ -287,7 +294,8 @@
                         </div>
 
                         <div class="outlined-box member-card bg-blue shadow-offset">
-                            <div class="roster-heading">
+                            <div class="roster-heading" style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                                <img src="images/avatar-4.jpg" alt="Vardhan" class="avatar-pic">
                                 <h3>Vardhan</h3>
                             </div>
                             <p class="identifier-code" style="color:white;">AM.SC.U4CSE25255</p>
