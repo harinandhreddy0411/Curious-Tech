@@ -163,22 +163,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const blogData = {
         "blog-1": { 
             title: "01. Quantum Supremacy", 
-            img: "images/blog-1.jpg",
+            img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80",
             content: "<h3>Breaking the Classical Barrier</h3><p>Quantum computers do not process data linearly. By leveraging superposition and entanglement, qubits process vast multidimensional computational spaces simultaneously.</p><p>This transmission analyzes the recent breakthroughs in error correction algorithms that are finally making quantum supremacy a stable reality rather than just a theoretical concept.</p>" 
         },
         "blog-2": { 
             title: "02. CSS Neo-Brutalism", 
-            img: "images/blog-2.jpg",
+            img: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=600&q=80",
             content: "<h3>Embracing the Chaos</h3><p>The Neo-Brutalist aesthetic combines harsh architectural borders, stark primary colors, and hard offset shadows to create user interfaces that demand attention.</p><p>In this guide, we break down how to utilize pure CSS variables, text-shadow manipulation, and precise z-index layering to build a graphic interface from scratch.</p>" 
         },
         "blog-3": { 
             title: "03. Agentic AI", 
-            img: "images/blog-3.jpg",
+            img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80",
             content: "<h3>Beyond Chatbots</h3><p>Standard Large Language Models are passive; they wait for prompts and return text. Agentic AI is active.</p><p>By providing an LLM with access to local terminal commands, API keys, and browser automation tools, we cross the threshold from conversational agents to autonomous digital employees capable of executing complex, multi-step web tasks without human oversight.</p>" 
         },
         "blog-4": { 
             title: "04. Kernel Level Dev", 
-            img: "images/blog-4.jpg",
+            img: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80",
             content: "<h3>Close to the Metal</h3><p>Writing drivers for modern Linux distributions requires a deep, fundamental understanding of memory management, hardware interrupts, and concurrency.</p><p>This transmission dives into the C architecture underlying the Linux Kernel, exploring how to safely write and deploy custom character device drivers.</p>" 
         }
     };
