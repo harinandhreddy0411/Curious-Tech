@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "blog-4": { 
             title: "04. Kernel Level Dev", 
-            img: "images/blog-4.png",
+            img: "images/blog-4.jpg",
             content: "<h3>Close to the Metal</h3><p>Writing drivers for modern Linux distributions requires a deep, fundamental understanding of memory management, hardware interrupts, and concurrency.</p><p>This transmission dives into the C architecture underlying the Linux Kernel, exploring how to safely write and deploy custom character device drivers.</p>" 
         },
         "blog-5": { 
