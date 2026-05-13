@@ -36,6 +36,15 @@ h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px
     object-fit: contain;
 }
 
+.avatar-pic {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; 
+    border: 3px solid black; 
+    object-fit: cover; 
+    background: white;
+}
+
 .system-alert-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background: rgba(0,0,0,0.7); z-index: 9999;
@@ -72,7 +81,7 @@ h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px
 .active-view { display: block; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-.outlined-box { border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 2rem; margin-bottom: 2rem; position: relative; transition: transform 0.1s; }
+.outlined-box { border: var(--border-thick); box-shadow: var(--shadow-hard); padding: 2rem; margin-bottom: 2rem; position: relative; transition: transform 0.2s; }
 .bg-white { background: white; }
 .bg-yellow { background: var(--secondary-color); }
 .bg-green { background: var(--accent-color); }
@@ -96,7 +105,7 @@ h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px
 
 #login-page { padding: 0; }
 .login-wrapper { position: relative; min-height: 80vh; display: flex; justify-content: center; align-items: center; padding: 3rem; border: var(--border-thick); box-shadow: var(--shadow-hard); overflow: hidden; }
-.login-wrapper::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('login-bg.jpg'); background-size: cover; background-position: center; filter: contrast(1.4) saturate(1.6) sepia(0.2); z-index: 0; }
+.login-wrapper::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('../images/login-bg.jpg'); background-size: cover; background-position: center; filter: contrast(1.4) saturate(1.6) sepia(0.2); z-index: 0; }
 .login-inner { position: relative; z-index: 10; max-width: 450px; width: 100%; }
 
 .auth-switcher { display: flex; margin-bottom: 2rem; border: 3px solid black; box-shadow: 4px 4px 0 black; background: white;}
@@ -114,8 +123,8 @@ h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px
 .social-icons img { width: 45px; height: 45px; border-radius: 50%; border: 3px solid black; padding: 5px; object-fit: contain; background:white; box-shadow: 3px 3px 0 black;}
 
 .masonry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-.item-card h3 { font-size: 1.5rem; margin-bottom: 10px; background: white; color: black; display: inline-block; padding: 2px 5px; border: 2px solid black;}
-.item-card p { font-weight: bold; font-size: 1.1rem; color: inherit;}
+.item-card h3, .text-post h3 { font-size: 1.5rem; margin-bottom: 10px; background: white; color: black; display: inline-block; padding: 2px 5px; border: 2px solid black;}
+.item-card p, .text-post p { font-weight: bold; font-size: 1.1rem; color: inherit;}
 
 .status-badge { position: absolute; top: -15px; right: -15px; border: 3px solid black; padding: 5px 10px; font-weight: 900; box-shadow: 3px 3px 0 black; font-size: 0.9rem; z-index: 10; transform: rotate(3deg);}
 .free-access { background: white; color: black; }
