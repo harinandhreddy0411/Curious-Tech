@@ -38,7 +38,6 @@
         <section id="login-page" class="view-section">
             <div class="login-wrapper">
                 <div class="outlined-box login-inner bg-white">
-                    
                     <div class="auth-switcher">
                         <button type="button" id="show-login" class="switcher-btn active-switcher">SIGN IN</button>
                         <button type="button" id="show-register" class="switcher-btn">REGISTER</button>
@@ -131,13 +130,13 @@
                 <div class="side-content">
                     <div class="outlined-box bg-yellow" style="padding: 1.5rem;">
                         <h3 style="margin-bottom: 10px; background: white; padding: 2px 5px; border: 2px solid black; display: inline-block;">Premium Course</h3>
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80" alt="Course Banner" class="styled-pic" style="height: 120px;">
+                        <img src="images/course.png" alt="Course Banner" class="styled-pic" style="height: 120px;">
                         <p style="font-weight: bold; margin-bottom: 15px;">Zero to Hero: Full Stack Architecture.</p>
                         <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp/" target="_blank" class="action-btn primary-action" style="display: block; width: 100%; text-align: center; text-decoration: none;">ENROLL NOW</a>
                     </div>
                     <div class="outlined-box bg-white" style="padding: 1.5rem;">
                         <h3 style="margin-bottom: 10px; background: white; padding: 2px 5px; border: 2px solid black; display: inline-block;">Featured Product</h3>
-                        <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&q=80" alt="Mechanical Keyboard" class="styled-pic" style="height: 120px;">
+                        <img src="images/keyboard.png" alt="Mechanical Keyboard" class="styled-pic" style="height: 120px;">
                         <p style="font-weight: bold; margin-bottom: 15px;">Curious Tech mechanical keyboards.</p>
                         <a href="https://nuphy.com/" target="_blank" class="action-btn secondary-action" style="display: block; width: 100%; text-align: center; text-decoration: none;">VIEW SHOP</a>
                     </div>
@@ -223,10 +222,24 @@
                 </div>
                 <div class="outlined-box text-post locked-item bg-blue">
                     <div class="status-badge locked-access" style="background: white; color:black;">AUTH REQUIRED</div>
-                    <img src="images/blog-4.jpg" alt="Linux" class="styled-pic">
+                    <img src="images/blog-4.png" alt="Linux" class="styled-pic">
                     <h3 style="color: black;">04. Kernel Level Dev</h3>
                     <p>A deep dive into writing drivers for modern Linux...</p>
                     <button type="button" class="action-btn block-btn read-trigger requires-auth-btn" data-blog="blog-4">ACCESS RECORD</button>
+                </div>
+                <div class="outlined-box text-post bg-white">
+                    <div class="status-badge free-access">OPEN ACCESS</div>
+                    <img src="images/blog-5.png" alt="Hardware" class="styled-pic">
+                    <h3>05. Neuromorphic Chips</h3>
+                    <p>Hardware designed to mimic the human nervous system...</p>
+                    <button type="button" class="action-btn block-btn read-trigger" data-blog="blog-5">ACCESS RECORD</button>
+                </div>
+                <div class="outlined-box text-post locked-item bg-yellow">
+                    <div class="status-badge locked-access">AUTH REQUIRED</div>
+                    <img src="images/blog-6.png" alt="Web3" class="styled-pic">
+                    <h3>06. Smart Contract Sec</h3>
+                    <p>Auditing decentralized networks for critical vulnerabilities...</p>
+                    <button type="button" class="action-btn block-btn read-trigger requires-auth-btn" data-blog="blog-6">ACCESS RECORD</button>
                 </div>
             </div>
         </section>
@@ -259,7 +272,7 @@
                                 <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Harinandh" alt="Harinandh" class="avatar-pic">
                                 <h3>Harinandh Reddy</h3>
                             </div>
-                            <p class="identifier-code">AM.SC.U4CSE25221</p>
+                            <p class="identifier-code">AM.SC.U4cse25221</p>
                             <div class="label-group">
                                 <span class="label-pill pill-white">&lt;/&gt; LEAD ARCHITECT</span>
                                 <span class="label-pill pill-green">AI/ML</span>
@@ -360,6 +373,6 @@
         </section>
 
     </main>
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 </html>
