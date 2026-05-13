@@ -197,3 +197,13 @@ hr { border: 0; border-top: 4px dashed black; margin: 1.5rem 0; }
 .graphic-question { color: var(--blue-accent); font-size: 6rem; }
 
 .hidden { display: none !important; }
+
+@keyframes pulseBadge {
+    0% { transform: scale(1) rotate(3deg); box-shadow: 3px 3px 0 black; }
+    50% { transform: scale(1.05) rotate(5deg); box-shadow: 6px 6px 0 black; }
+    100% { transform: scale(1) rotate(3deg); box-shadow: 3px 3px 0 black; }
+}
+
+.locked-access {
+    animation: pulseBadge 2s infinite ease-in-out;
+}
