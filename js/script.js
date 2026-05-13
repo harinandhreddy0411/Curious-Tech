@@ -178,8 +178,18 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "blog-4": { 
             title: "04. Kernel Level Dev", 
-            img: "images/blog-4.jpg",
+            img: "images/blog-4.png",
             content: "<h3>Close to the Metal</h3><p>Writing drivers for modern Linux distributions requires a deep, fundamental understanding of memory management, hardware interrupts, and concurrency.</p><p>This transmission dives into the C architecture underlying the Linux Kernel, exploring how to safely write and deploy custom character device drivers.</p>" 
+        },
+        "blog-5": { 
+            title: "05. Neuromorphic Chips", 
+            img: "images/blog-5.png",
+            content: "<h3>Silicon Brains</h3><p>Traditional von Neumann architectures separate memory and processing, leading to the famous bottleneck. Neuromorphic engineering solves this by physically structuring silicon to act like human neurons and synapses.</p><p>This record explores the latest prototypes processing AI models at a fraction of the power required by standard GPUs.</p>" 
+        },
+        "blog-6": { 
+            title: "06. Smart Contract Sec", 
+            img: "images/blog-6.png",
+            content: "<h3>Code is Law (Until it Breaks)</h3><p>In decentralized networks, a single logical flaw in a smart contract can result in massive data breaches, with no central authority to reverse the transaction.</p><p>This transmission covers common attack vectors like Reentrancy attacks, and how to write impenetrable decentralized code.</p>" 
         }
     };
 
