@@ -207,3 +207,10 @@ hr { border: 0; border-top: 4px dashed black; margin: 1.5rem 0; }
 .locked-access {
     animation: pulseBadge 2s infinite ease-in-out;
 }
+
+@media (max-width: 900px) {
+    .comms-layout {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
